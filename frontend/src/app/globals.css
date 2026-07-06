@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #070a13;
+  --color-panel: #0d1222;
+  --color-border: #1a233d;
+  --color-primary: #eab308;
+  --color-primary-hover: #ca8a04;
+  --color-accent: #f59e0b;
+}
+
+.theme-temple {
+  --color-bg: #070a13;
+  --color-panel: #0d1222;
+  --color-border: #1a233d;
+  --color-primary: #eab308;
+  --color-primary-hover: #ca8a04;
+  --color-accent: #f59e0b;
+}
+
+.theme-peacock {
+  --color-bg: #030712;
+  --color-panel: #070d19;
+  --color-border: #111a2e;
+  --color-primary: #0d9488;
+  --color-primary-hover: #0f766e;
+  --color-accent: #f59e0b;
+}
+
+.theme-forest {
+  --color-bg: #020804;
+  --color-panel: #041209;
+  --color-border: #0e2916;
+  --color-primary: #22c55e;
+  --color-primary-hover: #15803d;
+  --color-accent: #eab308;
+}
+
+.theme-dwarka {
+  --color-bg: #020617;
+  --color-panel: #0b1528;
+  --color-border: #1e293b;
+  --color-primary: #ca6f1e;
+  --color-primary-hover: #a04000;
+  --color-accent: #eab308;
+}
+
+.theme-kurukshetra {
+  --color-bg: #0c0a09;
+  --color-panel: #1c1917;
+  --color-border: #292524;
+  --color-primary: #f97316;
+  --color-primary-hover: #ea580c;
+  --color-accent: #ef4444;
+}
+
+@layer base {
+  body {
+    @apply font-sans antialiased transition-colors duration-300;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: color-mix(in srgb, var(--color-primary) 20%, transparent);
+  border-radius: 9999px;
+  transition: background-color 0.2s;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: color-mix(in srgb, var(--color-primary) 40%, transparent);
+}
+
+/* Glassmorphism panel styling */
+.glass-panel {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Soft gold ambient lighting */
+.gold-glow-orb {
+  background: radial-gradient(circle, rgba(241, 196, 15, 0.08) 0%, rgba(241, 196, 15, 0) 70%);
+}
+
+.saffron-glow-orb {
+  background: radial-gradient(circle, rgba(230, 126, 34, 0.08) 0%, rgba(230, 126, 34, 0) 70%);
+}
+
+/* Scroll snap scrollbars */
+.scroll-hide::-webkit-scrollbar {
+  display: none;
+}
+.scroll-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Custom animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 8s infinite ease-in-out;
+}
+
+.soothing-overlay {
+  background-color: rgba(245, 242, 235, 0.85); /* Sandstone light mode */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.dark .soothing-overlay {
+  background-color: color-mix(in srgb, var(--color-bg) 93%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
